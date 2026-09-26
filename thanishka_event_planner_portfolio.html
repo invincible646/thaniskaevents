@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanishka Event Planner | K. Thanalakshmi</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        roseGold: {
+                            50: '#FAF5F5',
+                            100: '#F4ECEE',
+                            200: '#E8D4D8',
+                            300: '#DAB8BF',
+                            400: '#C8939E',
+                            500: '#B87382',
+                            600: '#9E5564',
+                        },
+                        champagne: {
+                            100: '#FAF6EF',
+                            200: '#F3EAD9',
+                            300: '#E4D2B2',
+                            400: '#C5A059',
+                            500: '#B38B3F',
+                        },
+                        charcoal: {
+                            800: '#232023',
+                            900: '#171517',
+                            950: '#0E0C0E',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Cormorant Garamond', 'serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                        script: ['Alex Brush', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0E0C0E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B87382;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FAF6EF 0%, #C5A059 50%, #B87382 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(23, 21, 23, 0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(197, 160, 89, 0.22);
+        }
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(232, 212, 216, 0.6);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px -10px rgba(184, 115, 130, 0.3);
+        }
+        .toast-slide-in {
+            animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(100%) scale(0.9); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-charcoal-950 text-gray-200 font-body antialiased overflow-x-hidden selection:bg-roseGold-500 selection:text-white">
+
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 px-6 lg:px-12 bg-charcoal-950/90 backdrop-blur-md border-b border-champagne-400/20">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border border-champagne-400/50 flex items-center justify-center bg-charcoal-900 shadow-md group-hover:border-roseGold-400 transition-colors">
+                    <i class="fa-solid fa-spa text-champagne-400 text-lg group-hover:text-roseGold-300 transition-colors"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading text-2xl font-bold tracking-wider text-white group-hover:text-champagne-300 transition-colors">Thanishka</span>
+                    <span class="text-[9px] tracking-[0.3em] text-champagne-400 uppercase -mt-1 font-medium">Event Planner • K. Thanalakshmi</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.2em] text-gray-300 font-medium">
+                <a href="#services" class="hover:text-champagne-300 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-roseGold-400 hover:after:w-full after:transition-all">Services</a>
+                <a href="#portfolio" class="hover:text-champagne-300 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-roseGold-400 hover:after:w-full after:transition-all">Portfolio</a>
+                <a href="#testimonials" class="hover:text-champagne-300 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-roseGold-400 hover:after:w-full after:transition-all">Reviews</a>
+                <a href="#about" class="hover:text-champagne-300 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-roseGold-400 hover:after:w-full after:transition-all">About Us</a>
+            </nav>
+
+            <!-- Action Button -->
+            <div class="hidden sm:flex items-center">
+                <a href="#contact" class="px-6 py-2.5 rounded-full bg-gradient-to-r from-champagne-400 via-roseGold-400 to-roseGold-500 text-charcoal-950 font-bold text-xs tracking-wider uppercase shadow-lg shadow-roseGold-500/20 hover:shadow-roseGold-500/40 hover:scale-105 transition-all">
+                    Plan Your Event
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-champagne-400 text-2xl focus:outline-none p-1" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-champagne-400/15 pt-4 flex flex-col gap-4 text-center">
+            <a href="#services" class="text-xs uppercase tracking-widest text-gray-200 hover:text-champagne-300 py-1" onclick="closeMobileMenu()">Services</a>
+            <a href="#portfolio" class="text-xs uppercase tracking-widest text-gray-200 hover:text-champagne-300 py-1" onclick="closeMobileMenu()">Portfolio</a>
+            <a href="#testimonials" class="text-xs uppercase tracking-widest text-gray-200 hover:text-champagne-300 py-1" onclick="closeMobileMenu()">Reviews</a>
+            <a href="#about" class="text-xs uppercase tracking-widest text-gray-200 hover:text-champagne-300 py-1" onclick="closeMobileMenu()">About Us</a>
+            <a href="#contact" class="text-xs uppercase tracking-widest text-roseGold-400 font-bold py-1" onclick="closeMobileMenu()">Plan Your Event</a>
+        </div>
+    </header>
+
+    <section class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80" alt="Floral Event Decor" class="w-full h-full object-cover opacity-25 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/80 to-transparent"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(218,184,191,0.12)_0,transparent_75%)]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
+            <span class="font-script text-4xl sm:text-5xl text-roseGold-300 mb-2">Welcome to</span>
+            <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-wide text-white mb-4 leading-[1.1]">
+                Thanishka <span class="gold-gradient-text italic font-normal">Event Planner</span>
+            </h1>
+
+            <p class="text-champagne-300 text-sm sm:text-base tracking-[0.2em] uppercase font-semibold mb-6">
+                Directorship: K. Thanalakshmi
+            </p>
+
+            <p class="text-gray-300 text-base sm:text-lg max-w-2xl font-light mb-10 leading-relaxed">
+                Creating memorable celebrations across Chennai. From royal weddings and grand product launches to intimate surprise parties and full production management.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                <a href="#contact" class="w-full sm:w-auto px-10 py-4 rounded-full bg-gradient-to-r from-champagne-400 via-roseGold-400 to-roseGold-500 text-charcoal-950 font-bold text-xs tracking-[0.2em] uppercase shadow-xl shadow-roseGold-500/20 hover:shadow-roseGold-500/40 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+                    <span>Plan Your Event</span>
+                    <i class="fa-solid fa-calendar-heart text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Business Contact Highlights Bar -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pt-10 border-t border-champagne-400/20 w-full max-w-4xl text-center sm:text-left">
+                <div class="flex items-center justify-center sm:justify-start gap-3">
+                    <div class="w-10 h-10 rounded-full bg-roseGold-500/20 border border-roseGold-400/40 flex items-center justify-center text-roseGold-300 shrink-0">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase tracking-widest text-gray-400 block">Contact Number</span>
+                        <a href="tel:+919710695502" class="text-sm font-bold text-champagne-300 hover:underline">+91 9710695502</a>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center sm:justify-start gap-3">
+                    <div class="w-10 h-10 rounded-full bg-roseGold-500/20 border border-roseGold-400/40 flex items-center justify-center text-roseGold-300 shrink-0">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="overflow-hidden">
+                        <span class="text-[10px] uppercase tracking-widest text-gray-400 block">Direct Email</span>
+                        <a href="mailto:thanamlakshmi1581@gmail.com" class="text-xs font-bold text-champagne-300 hover:underline truncate block">thanamlakshmi1581@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center sm:justify-start gap-3">
+                    <div class="w-10 h-10 rounded-full bg-roseGold-500/20 border border-roseGold-400/40 flex items-center justify-center text-roseGold-300 shrink-0">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase tracking-widest text-gray-400 block">Base Location</span>
+                        <span class="text-xs font-semibold text-gray-200">Perambur, Chennai</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 px-6 relative bg-charcoal-900/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-roseGold-300 text-xs font-semibold uppercase tracking-[0.3em] mb-2 block">Card Offerings</span>
+                <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Services Offered</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-champagne-400 to-transparent mx-auto"></div>
+                <p class="text-gray-400 text-xs sm:text-sm mt-4 font-light">Custom tailored event production and management across 11 key service domains.</p>
+            </div>
+
+            <!-- 11 Services Grid strictly aligned with card -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Service 1: Corporate Events -->
+                <div class="glass-card glass-card-hover p-7 rounded-2xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 text-xl mb-5 group-hover:bg-champagne-400 group-hover:text-charcoal-950 transition-all duration-300">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Corporate Events</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6 font-light">
+                            Professional conferences, annual meets, corporate dinners, award functions, and executive gatherings.
+                        </p>
+                    </div>
+                    <button onclick="prefillAndScrollService('Corporate Events')" class="w-full py-2.5 rounded-xl bg-champagne-400/10 hover:bg-champagne-400 border border-champagne-400/30 text-champagne-300 hover:text-charcoal-950 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
+                        <span>Plan Your Event</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 2: Wedding -->
+                <div class="glass-card glass-card-hover p-7 rounded-2xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 text-xl mb-5 group-hover:bg-champagne-400 group-hover:text-charcoal-950 transition-all duration-300">
+                            <i class="fa-solid fa-[#E8D4D8] fa-ring"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Wedding</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6 font-light">
+                            Traditional & contemporary wedding concepts, floral mandap setups, engagement ceremonies, and reception styling.
+                        </p>
+                    </div>
+                    <button onclick="prefillAndScrollService('Wedding')" class="w-full py-2.5 rounded-xl bg-champagne-400/10 hover:bg-champagne-400 border border-champagne-400/30 text-champagne-300 hover:text-charcoal-950 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
+                        <span>Plan Your Event</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 3: Birthday Parties -->
+                <div class="glass-card glass-card-hover p-7 rounded-2xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 text-xl mb-5 group-hover:bg-champagne-400 group-hover:text-charcoal-950 transition-all duration-300">
+                            <i class="fa-solid fa-cake-candles"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Birthday Parties</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6 font-light">
+                            Milestone birthdays, kids theme setups, balloon decor, stage arches, and customized birthday cakes.
+                        </p>
+                    </div>
+                    <button onclick="prefillAndScrollService('Birthday Parties')" class="w-full py-2.5 rounded-xl bg-champagne-400/10 hover:bg-champagne-400 border border-champagne-400/30 text-champagne-300 hover:text-charcoal-950 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
+                        <span>Plan Your Event</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 4: Product Launches -->
+                <div class="glass-card glass-card-hover p-7 rounded-2xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 text-xl mb-5 group-hover:bg-champagne-400 group-hover:text-charcoal-950 transition-all duration-300">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Product Launches</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6 font-light">
+                            High-impact brand stage unveils, press meets, dynamic audio-visual intros, and product demonstration booths.
+                        </p>
+                    </div>
+                    <button onclick="prefillAndScrollService('Product Launches')" class="w-full py-2.5 rounded-xl bg-champagne-400/10 hover:bg-champagne-400 border border-champagne-400/30 text-champagne-300 hover:text-charcoal-950 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
+                        <span>Plan Your Event</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 5: Celebrity Events -->
+                <div class="glass-card glass-card-hover p-7 rounded-2xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 text-xl mb-5 group-hover:bg-champagne-400 group-hover:text-charcoal-950 transition-all duration-300">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Celebrity Events</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6 font-light">
+                            VIP security coordination, artist management, green room setups, and celebrity guest appearances.
+                        </p>
+                    </div>
+                    <button onclick="prefillAndScrollService('Celebrity Events')" class="w-full py-2.5 rounded-xl bg-champagne-400/10 hover:bg-champagne-400 border border-champagne-400/30 text-champagne-300 hover:text-charcoal-950 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
+                        <span>Plan Your Event</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 6: Social Events -->
+                <div class="glass-card glass-card-hover p-7 rounded-2xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 text-xl mb-5 group-hover:bg-champagne-400 group-hover:text-charcoal-950 transition-all duration-300">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Social Events</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6 font-light">
+                            Family reunions, anniversaries, housewarming celebrations, baby showers, and cultural get-togethers.
+                        </p>
+                    </div>
+                    <button onclick="prefillAndScrollService('Social Events')" class="w-full py-2.5 rounded-xl bg-champagne-400/10 hover:bg-champagne-400 border border-champagne-400/30 text-champagne-300 hover:text-charcoal-950 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
+                        <span>Plan Your Event</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 7: Brand Promotions -->
+                <div class="glass-card glass-card-hover p-7 rounded-2xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 text-xl mb-5 group-hover:bg-champagne-400 group-hover:text-charcoal-950 transition-all duration-300">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Brand Promotions</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6 font-light">
+                            Mall activations, outdoor promotional kiosks, experiential marketing stalls, and roadshows.
+                        </p>
+                    </div>
+                    <button onclick="prefillAndScrollService('Brand Promotions')" class="w-full py-2.5 rounded-xl bg-champagne-400/10 hover:bg-champagne-400 border border-champagne-400/30 text-champagne-300 hover:text-charcoal-950 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
+                        <span>Plan Your Event</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 8: Theme Events -->
+                <div class="glass-card glass-card-hover p-7 rounded-2xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 text-xl mb-5 group-hover:bg-champagne-400 group-hover:text-charcoal-950 transition-all duration-300">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Theme Events</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6 font-light">
+                            Bespoke concept styling, floral wonderlands, vintage masquerade setups, and customized backdrop designs.
+                        </p>
+                    </div>
+                    <button onclick="prefillAndScrollService('Theme Events')" class="w-full py-2.5 rounded-xl bg-champagne-400/10 hover:bg-champagne-400 border border-champagne-400/30 text-champagne-300 hover:text-charcoal-950 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
+                        <span>Plan Your Event</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 9: Surprise Events -->
+                <div class="glass-card glass-card-hover p-7 rounded-2xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 text-xl mb-5 group-hover:bg-champagne-400 group-hover:text-charcoal-950 transition-all duration-300">
+                            <i class="fa-solid fa-gift"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Surprise Events</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6 font-light">
+                            Secret romantic proposals, surprise birthday setups, luxury flash-mobs, and personalized gift reveals.
+                        </p>
+                    </div>
+                    <button onclick="prefillAndScrollService('Surprise Events')" class="w-full py-2.5 rounded-xl bg-champagne-400/10 hover:bg-champagne-400 border border-champagne-400/30 text-champagne-300 hover:text-charcoal-950 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
+                        <span>Plan Your Event</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 10: Photography & Videography -->
+                <div class="glass-card glass-card-hover p-7 rounded-2xl flex flex-col justify-between group">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 text-xl mb-5 group-hover:bg-champagne-400 group-hover:text-charcoal-950 transition-all duration-300">
+                            <i class="fa-solid fa-camera-retro"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Photography & Videography</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6 font-light">
+                            Candid wedding photography, cinematic teaser films, drone coverage, and instant photo booths.
+                        </p>
+                    </div>
+                    <button onclick="prefillAndScrollService('Photography & Videography')" class="w-full py-2.5 rounded-xl bg-champagne-400/10 hover:bg-champagne-400 border border-champagne-400/30 text-champagne-300 hover:text-charcoal-950 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
+                        <span>Plan Your Event</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 11: Entertainments -->
+                <div class="glass-card glass-card-hover p-7 rounded-2xl flex flex-col justify-between group sm:col-span-2 lg:col-span-1">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 text-xl mb-5 group-hover:bg-champagne-400 group-hover:text-charcoal-950 transition-all duration-300">
+                            <i class="fa-solid fa-masks-theater"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold text-white mb-2">Entertainments</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6 font-light">
+                            Live musical bands, celebrity DJs, traditional Chenda Melam troupe, illusionists, and dance performers.
+                        </p>
+                    </div>
+                    <button onclick="prefillAndScrollService('Entertainments')" class="w-full py-2.5 rounded-xl bg-champagne-400/10 hover:bg-champagne-400 border border-champagne-400/30 text-champagne-300 hover:text-charcoal-950 font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
+                        <span>Plan Your Event</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-roseGold-300 text-xs font-semibold uppercase tracking-[0.3em] mb-2 block">Visual Portfolio</span>
+                <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Previous Event Works</h2>
+                <p class="text-gray-400 text-xs sm:text-sm font-light">Explore a gallery of past event setups organized by category.</p>
+            </div>
+
+            <!-- Portfolio Filter Tabs -->
+            <div class="flex flex-wrap justify-center items-center gap-2 mb-12" id="portfolio-filters">
+                <button data-filter="all" class="filter-btn active px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase border border-champagne-400/30 bg-champagne-400 text-charcoal-950 transition-all shadow-md">All Works</button>
+                <button data-filter="wedding" class="filter-btn px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase border border-champagne-400/30 text-gray-300 hover:border-roseGold-400 hover:text-white transition-all">Weddings</button>
+                <button data-filter="corporate" class="filter-btn px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase border border-champagne-400/30 text-gray-300 hover:border-roseGold-400 hover:text-white transition-all">Corporate</button>
+                <button data-filter="social" class="filter-btn px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase border border-champagne-400/30 text-gray-300 hover:border-roseGold-400 hover:text-white transition-all">Social & Birthday</button>
+                <button data-filter="theme" class="filter-btn px-5 py-2 rounded-full text-xs font-bold tracking-wider uppercase border border-champagne-400/30 text-gray-300 hover:border-roseGold-400 hover:text-white transition-all">Themes & Surprise</button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+                
+                <!-- Item 1 -->
+                <div class="portfolio-item wedding glass-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openLightbox(0)">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Floral Wedding Mandap" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent opacity-85 group-hover:opacity-60 transition-opacity"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-roseGold-500/30 text-roseGold-200 border border-roseGold-400/40 backdrop-blur-md">Wedding</span>
+                    </div>
+                    <div class="p-6 relative">
+                        <span class="text-xs text-champagne-300 font-medium">ECR Beach Resort, Chennai</span>
+                        <h3 class="font-heading text-xl font-bold text-white mt-1 group-hover:text-roseGold-300 transition-colors">Floral Rose Pavilion Nuptials</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light line-clamp-2">Complete wedding mandap installation with fresh pastel roses, crystal drops, and aisle lighting.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="portfolio-item corporate glass-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openLightbox(1)">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" alt="Product Unveil Stage" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent opacity-85 group-hover:opacity-60 transition-opacity"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-roseGold-500/30 text-roseGold-200 border border-roseGold-400/40 backdrop-blur-md">Corporate</span>
+                    </div>
+                    <div class="p-6 relative">
+                        <span class="text-xs text-champagne-300 font-medium">Nungambakkam, Chennai</span>
+                        <h3 class="font-heading text-xl font-bold text-white mt-1 group-hover:text-roseGold-300 transition-colors">Tech Summit & Product Launch</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light line-clamp-2">High-impact LED stage backdrop, sound setup, and product reveal intro for corporate executives.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="portfolio-item social glass-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openLightbox(2)">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=80" alt="Milestone Birthday" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent opacity-85 group-hover:opacity-60 transition-opacity"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-roseGold-500/30 text-roseGold-200 border border-roseGold-400/40 backdrop-blur-md">Birthday</span>
+                    </div>
+                    <div class="p-6 relative">
+                        <span class="text-xs text-champagne-300 font-medium">Anna Nagar, Chennai</span>
+                        <h3 class="font-heading text-xl font-bold text-white mt-1 group-hover:text-roseGold-300 transition-colors">Golden Elegance Birthday Bash</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light line-clamp-2">Customized balloon arc, personalized neon backdrop, guest photo booth, and entertainment live music.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="portfolio-item theme glass-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openLightbox(3)">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Surprise Romantic Proposal" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent opacity-85 group-hover:opacity-60 transition-opacity"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-roseGold-500/30 text-roseGold-200 border border-roseGold-400/40 backdrop-blur-md">Surprise Event</span>
+                    </div>
+                    <div class="p-6 relative">
+                        <span class="text-xs text-champagne-300 font-medium">Mahabalipuram Beach</span>
+                        <h3 class="font-heading text-xl font-bold text-white mt-1 group-hover:text-roseGold-300 transition-colors">Seaside Surprise Proposal Setup</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light line-clamp-2">Candlelight beach path, 'Marry Me' light lettering, violinist, and instant candid photography.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="portfolio-item social glass-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openLightbox(4)">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80" alt="Celebrity Award Night" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent opacity-85 group-hover:opacity-60 transition-opacity"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-roseGold-500/30 text-roseGold-200 border border-roseGold-400/40 backdrop-blur-md">Celebrity Event</span>
+                    </div>
+                    <div class="p-6 relative">
+                        <span class="text-xs text-champagne-300 font-medium">Guindy, Chennai</span>
+                        <h3 class="font-heading text-xl font-bold text-white mt-1 group-hover:text-roseGold-300 transition-colors">Star-Studded Award Gala</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light line-clamp-2">Red carpet entrance, green rooms, celebrity security coordination, and live stage choreography.</p>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="portfolio-item theme glass-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openLightbox(5)">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Themed Floral Social Gathering" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/20 to-transparent opacity-85 group-hover:opacity-60 transition-opacity"></div>
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-roseGold-500/30 text-roseGold-200 border border-roseGold-400/40 backdrop-blur-md">Theme Event</span>
+                    </div>
+                    <div class="p-6 relative">
+                        <span class="text-xs text-champagne-300 font-medium">Perambur Hall, Chennai</span>
+                        <h3 class="font-heading text-xl font-bold text-white mt-1 group-hover:text-roseGold-300 transition-colors">Vintage Floral Theme Banquet</h3>
+                        <p class="text-gray-400 text-xs mt-2 font-light line-clamp-2">Lotus themed entrance, custom table floral centerpieces, soft ambient lighting, and videography.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-24 px-6 relative bg-charcoal-900/40">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-roseGold-300 text-xs font-semibold uppercase tracking-[0.3em] mb-2 block">Client Praise</span>
+                <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Happy Clients</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-champagne-400 to-transparent mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col justify-between">
+                    <div class="text-champagne-300 text-xs flex gap-1 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 italic font-light">
+                        "Thanishka Event Planner managed our daughter's wedding in Chennai. Thanalakshmi ma'am took care of everything from photography to stage decor. Superb quality!"
+                    </p>
+                    <div class="border-t border-champagne-400/15 pt-4">
+                        <h4 class="text-white font-bold text-xs sm:text-sm">R. Sundaram</h4>
+                        <span class="text-[10px] text-roseGold-300 uppercase tracking-wider">Wedding Host</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col justify-between">
+                    <div class="text-champagne-300 text-xs flex gap-1 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 italic font-light">
+                        "For our corporate product launch, their team arranged stage LED, lighting, and audio-visuals perfectly on short notice. Very professional."
+                    </p>
+                    <div class="border-t border-champagne-400/15 pt-4">
+                        <h4 class="text-white font-bold text-xs sm:text-sm">K. Karthik</h4>
+                        <span class="text-[10px] text-roseGold-300 uppercase tracking-wider">Brand Director</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col justify-between">
+                    <div class="text-champagne-300 text-xs flex gap-1 mb-4">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6 italic font-light">
+                        "Organized a surprise anniversary event and theme setup. Loved the flower decorations and prompt response on WhatsApp. Highly recommended!"
+                    </p>
+                    <div class="border-t border-champagne-400/15 pt-4">
+                        <h4 class="text-white font-bold text-xs sm:text-sm">Priyanka V.</h4>
+                        <span class="text-[10px] text-roseGold-300 uppercase tracking-wider">Surprise Event Client</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 relative">
+                <!-- Card-style visual representation -->
+                <div class="glass-card rounded-3xl p-8 border border-champagne-400/30 text-center relative overflow-hidden shadow-2xl">
+                    <div class="w-16 h-16 rounded-full bg-roseGold-500/20 border border-roseGold-400/40 mx-auto flex items-center justify-center text-champagne-300 text-2xl mb-4">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <h3 class="font-heading text-3xl font-bold text-white">Thanishka</h3>
+                    <p class="text-xs uppercase tracking-[0.25em] text-champagne-300 font-semibold mb-6">EVENT PLANNER</p>
+                    
+                    <div class="w-16 h-0.5 bg-roseGold-400/50 mx-auto mb-6"></div>
+
+                    <h4 class="font-heading text-xl font-bold text-white mb-1">K. Thanalakshmi</h4>
+                    <p class="text-xs text-gray-400 mb-6">Founder & Lead Organizer</p>
+
+                    <div class="space-y-3 text-left border-t border-champagne-400/15 pt-6 text-xs text-gray-300">
+                        <p class="flex items-center gap-3"><i class="fa-solid fa-phone text-roseGold-300"></i> +91 9710695502</p>
+                        <p class="flex items-center gap-3"><i class="fa-solid fa-envelope text-roseGold-300"></i> thanamlakshmi1581@gmail.com</p>
+                        <p class="flex items-start gap-3"><i class="fa-solid fa-location-dot text-roseGold-300 mt-0.5"></i> K.K.HOMES, 26, Damodaran St, State Bank Colony, Perambur, Chennai, Tamil Nadu 600011</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7">
+                <span class="text-roseGold-300 text-xs font-semibold uppercase tracking-[0.3em] mb-2 block">Our Vision</span>
+                <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+                    Bringing Elegance & Precision to Every Celebration
+                </h2>
+                <p class="text-gray-300 text-xs sm:text-sm leading-relaxed mb-4 font-light">
+                    At <strong class="text-champagne-300">Thanishka Event Planner</strong>, led by <strong class="text-white">K. Thanalakshmi</strong>, we specialize in organizing seamless, beautifully executed events across Chennai and Tamil Nadu.
+                </p>
+                <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-8 font-light">
+                    Whether you are planning a grand wedding, a corporate brand launch, a intimate surprise party, or complete stage photography & entertainments, our team provides end-to-end management so you can enjoy every moment without stress.
+                </p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl glass-card text-center">
+                        <span class="font-heading text-2xl font-bold text-champagne-300">100%</span>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider mt-1">Dedicated Focus</p>
+                    </div>
+                    <div class="p-4 rounded-xl glass-card text-center">
+                        <span class="font-heading text-2xl font-bold text-champagne-300">11+</span>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider mt-1">Service Categories</p>
+                    </div>
+                    <div class="p-4 rounded-xl glass-card text-center col-span-2 sm:col-span-1">
+                        <span class="font-heading text-2xl font-bold text-champagne-300">Chennai</span>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider mt-1">Primary Base</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 relative bg-charcoal-900/60">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact info panel -->
+                <div class="lg:col-span-5 flex flex-col justify-between">
+                    <div>
+                        <span class="text-roseGold-300 text-xs font-semibold uppercase tracking-[0.3em] mb-2 block">Direct Contact</span>
+                        <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">Plan Your Event</h2>
+                        <p class="text-gray-400 text-xs sm:text-sm font-light leading-relaxed mb-8">
+                            Fill out the event details form to generate an enquiry message sent directly to K. Thanalakshmi via WhatsApp.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 shrink-0">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-semibold text-xs sm:text-sm">Organizer / Lead Planner</h5>
+                                    <p class="text-xs text-champagne-300 font-bold mt-0.5">K. Thanalakshmi</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-semibold text-xs sm:text-sm">Phone / WhatsApp</h5>
+                                    <a href="tel:+919710695502" class="text-xs text-champagne-300 mt-0.5 font-bold hover:underline">+91 9710695502</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-semibold text-xs sm:text-sm">Email Address</h5>
+                                    <a href="mailto:thanamlakshmi1581@gmail.com" class="text-xs text-champagne-300 mt-0.5 hover:underline">thanamlakshmi1581@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-full bg-roseGold-500/20 border border-roseGold-400/30 flex items-center justify-center text-champagne-300 shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-semibold text-xs sm:text-sm">Office Address</h5>
+                                    <p class="text-xs text-gray-400 mt-0.5 leading-relaxed">
+                                        K.K.HOMES, 26, Damodaran St, State Bank Colony, Perambur, Chennai, Tamil Nadu 600011
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Event Enquiry Form -->
+                <div class="lg:col-span-7">
+                    <form id="booking-enquiry-form" onsubmit="handleFormSubmit(event)" class="glass-card rounded-3xl p-8 sm:p-10 border border-champagne-400/30 space-y-6">
+                        <div class="flex items-center justify-between border-b border-champagne-400/15 pb-4">
+                            <div>
+                                <h3 class="font-heading text-2xl font-bold text-white">Plan Your Event / Enquiry</h3>
+                                <p class="text-xs text-gray-400 font-light mt-0.5">Submit to trigger formatted enquiry to WhatsApp (+91 9710695502)</p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-[11px] uppercase tracking-wider font-semibold text-gray-300 mb-2">Your Full Name *</label>
+                                <input type="text" id="form-name" required placeholder="e.g. Ramesh Kumar" class="w-full bg-charcoal-900 border border-champagne-400/30 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-roseGold-400">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] uppercase tracking-wider font-semibold text-gray-300 mb-2">Contact Phone Number *</label>
+                                <input type="tel" id="form-phone" required placeholder="e.g. 9710695502" class="w-full bg-charcoal-900 border border-champagne-400/30 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-roseGold-400">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-[11px] uppercase tracking-wider font-semibold text-gray-300 mb-2">Email Address</label>
+                                <input type="email" id="form-email" placeholder="e.g. client@gmail.com" class="w-full bg-charcoal-900 border border-champagne-400/30 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-roseGold-400">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] uppercase tracking-wider font-semibold text-gray-300 mb-2">Service Required *</label>
+                                <select id="form-event-type" required class="w-full bg-charcoal-900 border border-champagne-400/30 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-roseGold-400">
+                                    <option value="Wedding" selected>Wedding</option>
+                                    <option value="Corporate Events">Corporate Events</option>
+                                    <option value="Birthday Parties">Birthday Parties</option>
+                                    <option value="Product Launches">Product Launches</option>
+                                    <option value="Celebrity Events">Celebrity Events</option>
+                                    <option value="Social Events">Social Events</option>
+                                    <option value="Brand Promotions">Brand Promotions</option>
+                                    <option value="Theme Events">Theme Events</option>
+                                    <option value="Surprise Events">Surprise Events</option>
+                                    <option value="Photography & Videography">Photography & Videography</option>
+                                    <option value="Entertainments">Entertainments</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            <div>
+                                <label class="block text-[11px] uppercase tracking-wider font-semibold text-gray-300 mb-2">Target Date</label>
+                                <input type="date" id="form-date" class="w-full bg-charcoal-900 border border-champagne-400/30 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-roseGold-400">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] uppercase tracking-wider font-semibold text-gray-300 mb-2">Estimated Guests</label>
+                                <input type="text" id="form-guests" placeholder="e.g. 200 Guests" class="w-full bg-charcoal-900 border border-champagne-400/30 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-roseGold-400">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] uppercase tracking-wider font-semibold text-gray-300 mb-2">Budget Preference</label>
+                                <select id="form-budget" class="w-full bg-charcoal-900 border border-champagne-400/30 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-roseGold-400">
+                                    <option value="Flexible / Discussion">Flexible / Open for discussion</option>
+                                    <option value="Under ₹1 Lakh">Under ₹1 Lakh</option>
+                                    <option value="₹1 Lakh - ₹5 Lakhs">₹1 Lakh - ₹5 Lakhs</option>
+                                    <option value="₹5 Lakhs - ₹15 Lakhs">₹5 Lakhs - ₹15 Lakhs</option>
+                                    <option value="₹15 Lakhs+">₹15 Lakhs+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-wider font-semibold text-gray-300 mb-2">Event Location / Venue</label>
+                            <input type="text" id="form-location" placeholder="e.g. Perambur Hall, Chennai or Hotel Le Royal Meridien" class="w-full bg-charcoal-900 border border-champagne-400/30 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-roseGold-400">
+                        </div>
+
+                        <div>
+                            <label class="block text-[11px] uppercase tracking-wider font-semibold text-gray-300 mb-2">Additional Requirement Notes</label>
+                            <textarea id="form-notes" rows="3" placeholder="Tell us more about decoration themes, sound/lighting requirements, floral arrangements..." class="w-full bg-charcoal-900 border border-champagne-400/30 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-roseGold-400"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-champagne-400 via-roseGold-400 to-roseGold-500 text-charcoal-950 font-bold text-xs uppercase tracking-[0.2em] shadow-xl shadow-roseGold-500/20 hover:scale-[1.01] transition-all flex items-center justify-center gap-2.5">
+                            <i class="fa-solid fa-paper-plane text-base"></i>
+                            <span>Submit Enquiry via WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-charcoal-950 border-t border-champagne-400/15 py-10 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full border border-champagne-400/40 flex items-center justify-center bg-charcoal-900">
+                    <i class="fa-solid fa-spa text-champagne-400 text-sm"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading text-lg font-bold tracking-wider text-white">Thanishka Event Planner</span>
+                    <span class="text-[9px] text-gray-400 font-light">Directorship: K. Thanalakshmi</span>
+                </div>
+            </div>
+
+            <p class="text-xs text-gray-400 text-center">
+                &copy; 2026 Thanishka Event Planner. Contact: +91 9710695502 • Perambur, Chennai.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Notification Toast Modal -->
+    <div id="confirmation-toast" class="fixed bottom-6 left-6 z-50 hidden">
+        <div class="glass-card border border-roseGold-400/50 p-4 rounded-2xl shadow-2xl flex items-center gap-3 text-white max-w-sm toast-slide-in">
+            <div class="w-10 h-10 rounded-full bg-roseGold-400 text-charcoal-950 flex items-center justify-center text-xl shrink-0 font-bold">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <div>
+                <h5 class="text-xs font-bold text-champagne-300 uppercase tracking-wider">Formatting Enquiry...</h5>
+                <p class="text-xs text-gray-300 font-light mt-0.5">Opening WhatsApp chat with K. Thanalakshmi (+91 9710695502).</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-charcoal-950/90 backdrop-blur-xl hidden flex items-center justify-center p-4 sm:p-8">
+        <div class="relative max-w-4xl w-full glass-card rounded-3xl overflow-hidden border border-champagne-400/30 max-h-[90vh] flex flex-col">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-charcoal-900/80 text-white hover:text-champagne-300 flex items-center justify-center border border-champagne-400/20">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="overflow-y-auto p-6 sm:p-8 space-y-6">
+                <div class="relative h-64 sm:h-96 rounded-2xl overflow-hidden">
+                    <img id="modal-img" src="" alt="Work Detail" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-transparent to-transparent"></div>
+                    <span id="modal-category" class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold uppercase bg-champagne-400 text-charcoal-950">Category</span>
+                </div>
+
+                <div>
+                    <span id="modal-location" class="text-xs text-roseGold-300 font-semibold uppercase tracking-widest">Location</span>
+                    <h3 id="modal-title" class="font-heading text-2xl sm:text-3xl font-bold text-white mt-1">Event Title</h3>
+                    <p id="modal-description" class="text-gray-300 text-xs sm:text-sm font-light mt-3 leading-relaxed">Detailed description...</p>
+                </div>
+
+                <div class="border-t border-champagne-400/15 pt-4">
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-champagne-300 mb-3">Key Highlights</h4>
+                    <ul id="modal-highlights" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-300"></ul>
+                </div>
+
+                <button id="modal-plan-btn" onclick="" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-champagne-400 via-roseGold-400 to-roseGold-500 text-charcoal-950 font-bold text-xs tracking-widest uppercase transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-calendar-check text-sm"></i> Plan This Type of Event
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Direct WhatsApp Number Target (K. Thanalakshmi)
+        const TARGET_WHATSAPP_NUMBER = "919710695502";
+
+        const portfolioData = [
+            {
+                title: "Floral Rose Pavilion Nuptials",
+                category: "Wedding",
+                location: "ECR Beach Resort, Chennai",
+                image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80",
+                description: "A gorgeous beach resort wedding with bespoke floral mandap architecture, pastel roses, crystal dropping accents, and pathway floral arches.",
+                highlights: ["Fresh lotus & pastel rose floral mandap", "Seaside beach resort arrangement", "Complete photo & video coverage", "Guest welcome hospitality"]
+            },
+            {
+                title: "Tech Summit & Product Launch",
+                category: "Corporate Events",
+                location: "Nungambakkam, Chennai",
+                image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80",
+                description: "High impact corporate product launch equipped with high-resolution LED backdrop screens, intelligent stage lighting, and sound engineering.",
+                highlights: ["Custom stage LED backdrop reveal", "Acoustic audio setup", "Executive seating layout", "Press meet coordination"]
+            },
+            {
+                title: "Golden Elegance Birthday Bash",
+                category: "Birthday Parties",
+                location: "Anna Nagar, Chennai",
+                image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1000&q=80",
+                description: "A vibrant birthday celebration featuring custom balloon archways, personalized neon signage, photo booth setup, and live DJ entertainments.",
+                highlights: ["Custom balloon entrance & stage backdrop", "Personalized neon light name board", "Custom cake setup", "Live DJ & music sound rig"]
+            },
+            {
+                title: "Seaside Surprise Proposal Setup",
+                category: "Surprise Events",
+                location: "Mahabalipuram Beach",
+                image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1000&q=80",
+                description: "An intimate beachside surprise proposal with LED 'Marry Me' lettering, candlelit aisle path, flower decor, and candid photography.",
+                highlights: ["Secret proposal execution", "Lit-up 'Marry Me' giant lettering", "Candlelight walkway on beach", "Candid photo capture"]
+            },
+            {
+                title: "Star-Studded Award Gala",
+                category: "Celebrity Events",
+                location: "Guindy, Chennai",
+                image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1000&q=80",
+                description: "Grand award ceremony with celebrity guest arrangements, red carpet entry backdrop, security management, and stage awards setup.",
+                highlights: ["VIP guest & security management", "Red carpet entrance backdrop", "Stage award trophy design", "Spotlight stage lighting"]
+            },
+            {
+                title: "Vintage Floral Theme Banquet",
+                category: "Theme Events",
+                location: "Perambur Hall, Chennai",
+                image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1000&q=80",
+                description: "Elegant floral themed social gathering with handcrafted floral centerpieces, soft ambient lighting, and complete videography.",
+                highlights: ["Custom theme floral backdrop", "Ambient hall lighting", "Professional videography & photo", "Stage seating decor"]
+            }
+        ];
+
+        // Form Submission -> Formats message & opens WhatsApp to 919710695502
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('form-name').value.trim();
+            const phone = document.getElementById('form-phone').value.trim();
+            const email = document.getElementById('form-email').value.trim() || 'Not specified';
+            const eventType = document.getElementById('form-event-type').value;
+            const date = document.getElementById('form-date').value || 'To be decided';
+            const guests = document.getElementById('form-guests').value.trim() || 'Flexible';
+            const budget = document.getElementById('form-budget').value;
+            const location = document.getElementById('form-location').value.trim() || 'Not specified';
+            const notes = document.getElementById('form-notes').value.trim() || 'None';
+
+            const rawMessage = 
+`🌸 *EVENT ENQUIRY - THANISHKA EVENT PLANNER*
+______________________________________
+
+👤 *Name:* ${name}
+📞 *Phone:* ${phone}
+📧 *Email:* ${email}
+
+🎉 *Service Required:* ${eventType}
+📅 *Event Date:* ${date}
+👥 *Guest Count:* ${guests}
+💰 *Budget:* ${budget}
+📍 *Location:* ${location}
+
+📝 *Requirements / Notes:*
+"${notes}"
+
+______________________________________
+_Sent via Thanishka Event Planner Website_`;
+
+            const encodedMessage = encodeURIComponent(rawMessage);
+            const targetUrl = `https://wa.me/${TARGET_WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+            showToast();
+
+            setTimeout(() => {
+                window.open(targetUrl, '_blank');
+            }, 400);
+        }
+
+        // Prefill Service Card Choice into Form and Scroll
+        function prefillAndScrollService(serviceName) {
+            const selectElement = document.getElementById('form-event-type');
+            
+            for (let i = 0; i < selectElement.options.length; i++) {
+                if (selectElement.options[i].value.toLowerCase() === serviceName.toLowerCase() ||
+                    selectElement.options[i].value.toLowerCase().includes(serviceName.toLowerCase())) {
+                    selectElement.selectedIndex = i;
+                    break;
+                }
+            }
+
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Show Toast Notification
+        function showToast() {
+            const toast = document.getElementById('confirmation-toast');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+
+        // Mobile Menu Toggling
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // Portfolio Category Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-champagne-400', 'text-charcoal-950', 'shadow-md');
+                    b.classList.add('text-gray-300');
+                });
+                btn.classList.add('bg-champagne-400', 'text-charcoal-950', 'shadow-md');
+                btn.classList.remove('text-gray-300');
+
+                const filter = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Portfolio Lightbox Handler
+        function openLightbox(index) {
+            const data = portfolioData[index];
+            if (!data) return;
+
+            document.getElementById('modal-img').src = data.image;
+            document.getElementById('modal-category').innerText = data.category;
+            document.getElementById('modal-location').innerText = data.location;
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-description').innerText = data.description;
+
+            const highlightsList = document.getElementById('modal-highlights');
+            highlightsList.innerHTML = '';
+            data.highlights.forEach(h => {
+                const li = document.createElement('li');
+                li.className = 'flex items-center gap-2';
+                li.innerHTML = `<i class="fa-solid fa-circle-check text-roseGold-300"></i> ${h}`;
+                highlightsList.appendChild(li);
+            });
+
+            const modalPlanBtn = document.getElementById('modal-plan-btn');
+            modalPlanBtn.onclick = function() {
+                closeLightbox();
+                prefillAndScrollService(data.category);
+            };
+
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('lightbox-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox-modal') closeLightbox();
+        });
+    </script>
+</body>
+</html>
